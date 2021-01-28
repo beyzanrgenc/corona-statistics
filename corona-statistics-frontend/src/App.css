@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: rgb(38, 59, 74);
+  color: white;
+}
+
+.nav-link{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  color: white;
+}
+
+.navStyle{
+  color: white;
+}
+
+.news-form{
+  height: 100%;
+  width: 80%;
+  display: inline-block;
+  margin: auto;
+}
+
+.news-text-area{
+  font-size: 22px;
+}
