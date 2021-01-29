@@ -21,9 +21,9 @@ public class Statistics {
     private int covidCase;
     private int death;
     private int discharge;
-    private New news;
+    private News news;
 
-    public Statistics(String city, Date date, int covidCase, int death, int discharge, New news) {
+    public Statistics(String city, Date date, int covidCase, int death, int discharge, News news) {
         this.city = city;
         this.date = date;
         this.covidCase = covidCase;

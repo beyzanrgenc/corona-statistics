@@ -9,12 +9,12 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class New {
+public class News {
 
     private String newsText;
     private Date newsDate;
 
-    public New(String newsText, Date newsDate) {
+    public News(String newsText, Date newsDate) {
         this.newsText = newsText;
         this.newsDate = newsDate;
     }
