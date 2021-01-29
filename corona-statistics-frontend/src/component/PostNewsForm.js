@@ -12,9 +12,12 @@ class PostNewsForm extends Component {
 
     handleChange(event) { this.setState({ value: event.target.value }); }
     handleSubmit(event) {
-        var newText = this.state.value;
-        this.props.onSubmitNews(newText); 
         event.preventDefault();
+        var newText = this.state.value;
+        this.props.onSubmitNews(newText);
+        this.setState({
+            value: ''
+          });   
     }
 
     render() {

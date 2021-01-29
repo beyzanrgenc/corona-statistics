@@ -81,8 +81,12 @@ class City {
     static Yalova = new City('yalova');
     static Yozgat = new City('yozgat');
     static Zonguldak = new City('zonguldak');
-
-
+    static Cities = [this.Adana, this.Adıyaman, this.Afyonkarahisar, this.Ağrı, this.Aksaray, this.Amasya, this.Ankara, this.Antalya, this.Ardahan, this.Artvin, this.Aydın, this.Balıkesir, this.Bartın, this.Batman, this.Bayburt, this.Bilecik,
+    this.Bingöl, this.Bitlis, this.Bolu, this.Burdur, this.Bursa, this.Çanakkale, this.Çankırı, this.Çorum, this.Denizli, this.Diyarbakır, this.Düzce, this.Edirne, this.Elâzığ, this.Erzincan, this.Erzurum, this.Eskişehir, this.Gaziantep, 
+    this.Giresun, this.Gümüşhane, this.Hakkâri, this.Hatay, this.Iğdır, this.Isparta, this.İstanbul, this.İzmir, this.Kahramanmaraş, this.Karabük, this.Karaman, this.Kars, this.Kastamonu, this.Kayseri, this.Kırıkkale, this.Kırklareli, 
+    this.Kırşehir, this.Kilis, this.Kocaeli, this.Konya, this.Kütahya, this.Malatya, this.Manisa, this.Mardin, this.Mersin, this.Muğla, this.Muş, this.Nevşehir, this.Niğde, this.Ordu, this.Osmaniye, this.Rize, this.Sakarya, this.Samsun, 
+    this.Siirt, this.Sinop, this.Sivas, this.Şanlıurfa, this.Şırnak, this.Tekirdağ, this.Tokat, this.Trabzon, this.Tunceli, this.Uşak, this.Van, this.Yalova, this.Yozgat, this.Zonguldak];
+    
     constructor(name) {
         this.name = name;
     }

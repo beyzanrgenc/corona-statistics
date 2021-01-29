@@ -14,7 +14,6 @@ class ChartSection extends Component {
     static defaultProps = {
         displayTitle: true,
         displayLegend: true,
-        legendPosition: 'right',
         location: 'City'
     }
 
@@ -24,16 +23,19 @@ class ChartSection extends Component {
                 <Line
                     data={this.state.chartData}
                     options={{
-                        title: {
-                            display: this.props.displayTitle,
-                            text: 'Largest Cities In ' + this.props.location,
-                            fontSize: 25
-                        },
-                        legend: {
-                            display: this.props.displayLegend,
-                            position: this.props.legendPosition
-                        }
-                    }}
+                        scales: {
+                                  yAxes: [{
+                                      ticks: {
+                                          beginAtZero:true
+                                      },
+                                      scaleLabel: {
+                                           display: true,
+                                           labelString: 'Covid19 Statistics in ' + this.props.location,
+                                           fontSize: 20 
+                                        }
+                                  }]            
+                              }  
+                      }}
                 />       
             </div>
         )
@@ -41,3 +43,4 @@ class ChartSection extends Component {
 }
 
 export default ChartSection;
+

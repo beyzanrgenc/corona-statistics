@@ -3,6 +3,8 @@ package com.project.corstat.repository;
 import com.project.corstat.model.Statistics;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface StatisticsRepository extends MongoRepository<Statistics, String> {
+import java.util.List;
 
+public interface StatisticsRepository extends MongoRepository<Statistics, String> {
+    List<Statistics> findByCity(String city);
 }
