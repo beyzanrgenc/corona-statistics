@@ -12,3 +12,4 @@ class Keyword {
         return `Keyword.${this.name}`;
     }
 }
+export default Keyword;

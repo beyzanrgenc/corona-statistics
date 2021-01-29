@@ -86,7 +86,8 @@ class City {
     constructor(name) {
         this.name = name;
     }
-    toString() {
+    static toString() {
         return `City.${this.name}`;
     }
 }
+export default City;
