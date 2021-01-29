@@ -4,12 +4,6 @@ import '../App.css';
 
 
 class ChartSection extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            chartData: props.chartData
-        }
-    }
 
     static defaultProps = {
         displayTitle: true,
@@ -21,7 +15,7 @@ class ChartSection extends Component {
         return (
             <div className="chart">
                 <Line
-                    data={this.state.chartData}
+                    data={this.props.chartData}
                     options={{
                         scales: {
                                   yAxes: [{

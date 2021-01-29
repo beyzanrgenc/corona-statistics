@@ -23,10 +23,14 @@ class Graphic extends Component {
     axios.get(REST_API_URL_GET_ALL).then(res => {
       const statElement = res.data;
       let labels = [];
-      let data = [];      
+      let caseData = [];      
+      let deathData = [];      
+      let discharge = [];      
       statElement.forEach(element => {
         labels.push(element.date.substr(0, 10));
-        data.push(element.covidCase);
+        caseData.push(element.covidCase);
+        deathData.push(element.death);
+        discharge.push(element.discharge);
       });
       console.log(labels);
       this.setState({
@@ -51,7 +55,7 @@ class Graphic extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 4,
             pointHitRadius: 10,
-            data: [65, 59, 80, 81, 56, 55, 40,50 , 60, 55, 30, 78],
+            data: caseData,
             spanGaps: true,
           }, {
             label: "Vefat",
@@ -72,7 +76,7 @@ class Graphic extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 4,
             pointHitRadius: 10,
-            data: [10, 20, 60, 95, 64, 78, 90, 87, 70, 40, 70, 89],
+            data: deathData,
             spanGaps: false,
           }, {
             label: "Taburcu",
@@ -93,7 +97,7 @@ class Graphic extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 4,
             pointHitRadius: 10,
-            data: [100, 20, 60, 955, 64, 78, 90, 78, 70, 40, 70, 89],
+            data: discharge,
             spanGaps: false,
           }
   
