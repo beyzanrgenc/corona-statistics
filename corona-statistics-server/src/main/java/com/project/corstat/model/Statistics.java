@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,9 +22,9 @@ public class Statistics {
     private int covidCase;
     private int death;
     private int discharge;
-    private News news;
+    private List<News> news;
 
-    public Statistics(String city, Date date, int covidCase, int death, int discharge, News news) {
+    public Statistics(String city, Date date, int covidCase, int death, int discharge, List<News> news) {
         this.city = city;
         this.date = date;
         this.covidCase = covidCase;

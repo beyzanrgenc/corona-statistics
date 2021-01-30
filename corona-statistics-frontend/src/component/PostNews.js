@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../App.css';
 import PostNewsForm from './PostNewsForm';
-import City from '../data/city';
-import Keyword from '../data/keyword'
+import City from '../data/City';
+import Keyword from '../data/Keyword'
 
 const REST_API_URL = 'http://localhost:8081/addStatistics';
 
@@ -25,7 +25,7 @@ class PostNews extends Component {
 
   parseNews(value) {
     var newsText = value;
-    var newTextLower = this.turkishToLower(newsText);
+    var newTextLower = newsText.toLocaleLowerCase('tr-TR');
     newTextLower = newTextLower.replace("  ", " ");
     var sentenceArray = newTextLower.split(". ");
     var sentenceArrayIter = 0;
@@ -79,8 +79,8 @@ class PostNews extends Component {
       alert("Information in the news is incomplete. Please check your information and re-enter the news.");
       return null;
     }
-    
-    date = date.substr(3, 2) + "." + date.substr(0, 2) + "." + date.substr(6, 4);
+
+    date = date.substr(3, 2) + "." + (parseInt(date.substr(0, 2))+1) + "." + date.substr(6, 4);
     var currentDate = new Date();
 
     var postStatistics = {
@@ -90,20 +90,13 @@ class PostNews extends Component {
       death: death,
       discharge: discharge,
       news:
-      {
+      [{
         newsText: newsText,
         newsDate: new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), currentDate.getHours(), currentDate.getMinutes(), currentDate.getSeconds())
-      }
+      }]
     }
     return postStatistics;
   }
-  
-  turkishToLower(text){
-    var string = text;
-    var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
-    string = string.replace(/(([İIŞĞÜÇÖ]))/g, function(letter){ return letters[letter]; })
-    return string.toLowerCase();
-  }	
 
   render() {
     return (

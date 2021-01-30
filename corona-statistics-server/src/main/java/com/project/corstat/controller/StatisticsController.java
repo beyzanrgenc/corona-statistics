@@ -23,17 +23,17 @@ public class StatisticsController {
         service.addStatistics(statistics);
         return ResponseEntity.ok(statistics);
     }
-/*
+
     @GetMapping("/getStatistics")
     public ResponseEntity<Iterable<Statistics>> getStatistics() {
-        List<Statistics> stats = repository.findAll(Sort.by(Sort.Direction.ASC, "date"));
+        List<Statistics> stats = service.getAll();
         return ResponseEntity.ok(stats);
     }
 
-    @GetMapping("/getStatistics/{city}")
+    @GetMapping("/getStatisticsByCity/{city}")
     public ResponseEntity<Iterable<Statistics>> getStatisticsByCity(@PathVariable String city) {
-        List<Statistics> stats = repository.findByCityOrderByDateAsc(city);
+        List<Statistics> stats = service.findByCity(city);
         return ResponseEntity.ok(stats);
-    }*/
+    }
 }
 

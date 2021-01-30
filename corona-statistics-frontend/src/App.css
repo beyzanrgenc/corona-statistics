@@ -34,3 +34,17 @@ nav{
 .news-text-area{
   font-size: 22px;
 }
+
+.filter-form{
+  height: 100%;
+  width: 80%;
+  display: inline-block;
+  margin: auto;
+}
+
+.chart{
+  height: 50%;
+  width: 80%;
+  display: inline-block;
+  margin: auto;
+}

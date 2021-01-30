@@ -5,27 +5,37 @@ import ChartSection from './ChartSection';
 import FilterGraphicSection from './FilterGraphicSection';
 
 const REST_API_URL_GET_ALL = 'http://localhost:8081/getStatistics';
+const REST_API_URL_GET_BY_CITY = 'http://localhost:8081/getStatisticsByCity/';
 
 class Graphic extends Component {
 
   constructor() {
     super();
     this.state = {
+      location: 'Ankara',
       chartData: {}
     }
   }
 
-  deneme(value) {
-    alert(!value);
+  cumulativeChanged(value) {
+    if (value === true) {
+      this.getChartData(REST_API_URL_GET_ALL, "");
+    } else {
+      this.getChartData(REST_API_URL_GET_BY_CITY, this.state.location);
+    }
+  }
+
+  selectionChanged(value) {
+    this.setState({ location: value});
+    this.getChartData(REST_API_URL_GET_BY_CITY, value);
   }
 
   componentWillMount() {
-    this.getChartData();
+    this.getChartData(REST_API_URL_GET_BY_CITY, this.state.location);
   }
 
-  getChartData() {
-
-    axios.get(REST_API_URL_GET_ALL).then(res => {
+  getChartData(url,value) {
+    axios.get(url + value).then(res => {
       const statElement = res.data;
       let labels = [];
       let caseData = [];
@@ -37,7 +47,6 @@ class Graphic extends Component {
         deathData.push(element.death);
         discharge.push(element.discharge);
       });
-      console.log(labels);
       this.setState({
         chartData: {
           labels: labels,
@@ -105,7 +114,6 @@ class Graphic extends Component {
             data: discharge,
             spanGaps: false,
           }
-
           ]
         }
       });
@@ -115,8 +123,8 @@ class Graphic extends Component {
   render() {
     return (
       <div className="Graphic">
-        <ChartSection chartData={this.state.chartData} location="Ankara" />
-        <FilterGraphicSection onCumulativeChanged={this.deneme.bind(this)} />
+        <ChartSection chartData={this.state.chartData} location={this.state.location} />
+        <FilterGraphicSection onCumulativeChanged={this.cumulativeChanged.bind(this)} onSelectionChanged={this.selectionChanged.bind(this)} />
       </div>
     );
   }
