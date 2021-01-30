@@ -5,7 +5,7 @@ import PostNewsForm from './PostNewsForm';
 import City from '../data/city';
 import Keyword from '../data/keyword'
 
-const REST_API_URL = 'http://localhost:8081/saveStatistics';
+const REST_API_URL = 'http://localhost:8081/addStatistics';
 
 class PostNews extends Component {
 
