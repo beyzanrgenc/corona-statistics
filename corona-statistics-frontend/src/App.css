@@ -48,3 +48,8 @@ nav{
   display: inline-block;
   margin: auto;
 }
+
+.FilterGraphicSection{
+  padding-top: 0.4%;
+  margin: auto;
+}

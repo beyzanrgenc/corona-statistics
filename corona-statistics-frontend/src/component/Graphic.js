@@ -123,8 +123,8 @@ class Graphic extends Component {
   render() {
     return (
       <div className="Graphic">
-        <ChartSection chartData={this.state.chartData} location={this.state.location} />
         <FilterGraphicSection onCumulativeChanged={this.cumulativeChanged.bind(this)} onSelectionChanged={this.selectionChanged.bind(this)} />
+        <ChartSection chartData={this.state.chartData} location={this.state.location} />
       </div>
     );
   }

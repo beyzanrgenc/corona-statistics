@@ -33,7 +33,7 @@ class FilterGraphicSection extends Component {
             };
         return (
             <div className="FilterGraphicSection">
-                <form className="filter-form">
+                <form className="card p-2 bg-light filter-form">
                     <div className="form-row">
                         <div className="col-5">
                             <select className="form-control form-control-sm" value={this.state.selected} disabled={this.state.status} onChange={this.handleSelectionChange}>
@@ -43,7 +43,7 @@ class FilterGraphicSection extends Component {
                         <div className="col">
                             <input className="form-check-input" type="checkbox" value={this.state.status} id="isCumulativeCheckBox" onChange={this.handleCumulativeChange} />
                             <label className="form-check-label" htmlFor="isCumulativeCheckBox">
-                                View the cumulative data.
+                                <b>Cumulative Data</b>
                             </label>
                         </div>
                     </div>
