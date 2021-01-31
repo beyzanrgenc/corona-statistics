@@ -36,7 +36,7 @@ class FilterGraphicSection extends Component {
                 <form className="filter-form">
                     <div className="form-row">
                         <div className="col-5">
-                            <select className="form-control form-control-sm" value={this.state.selected} onChange={this.handleSelectionChange}>
+                            <select className="form-control form-control-sm" value={this.state.selected} disabled={this.state.status} onChange={this.handleSelectionChange}>
                                 {ComboBoxData.map(MakeComboBoxItem)}
                             </select>
                         </div>

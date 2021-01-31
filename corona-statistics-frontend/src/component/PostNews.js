@@ -20,6 +20,8 @@ class PostNews extends Component {
     )
     if(response.status === 200){
       alert("The news has been sent successfully.");
+    } else {
+      alert("Something went wrong. Try again.");
     }
   }
 
@@ -80,7 +82,7 @@ class PostNews extends Component {
       return null;
     }
 
-    date = date.substr(3, 2) + "." + (parseInt(date.substr(0, 2))+1) + "." + date.substr(6, 4);
+    date = date.substr(3, 2) + "." + (parseInt(date.substr(0, 2))) + "." + date.substr(6, 4);
     var currentDate = new Date();
 
     var postStatistics = {

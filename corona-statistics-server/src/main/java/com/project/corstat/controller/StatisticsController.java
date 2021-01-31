@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -19,7 +20,7 @@ public class StatisticsController {
     private StatisticsService service;
 
     @PostMapping("/addStatistics")
-    public ResponseEntity<Statistics> addStatistics(@RequestBody Statistics statistics) {
+    public ResponseEntity<Statistics> addStatistics(@RequestBody Statistics statistics) throws ParseException {
         service.addStatistics(statistics);
         return ResponseEntity.ok(statistics);
     }

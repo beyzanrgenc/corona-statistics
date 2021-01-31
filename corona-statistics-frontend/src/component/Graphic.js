@@ -26,7 +26,7 @@ class Graphic extends Component {
   }
 
   selectionChanged(value) {
-    this.setState({ location: value});
+    this.setState({ location: value });
     this.getChartData(REST_API_URL_GET_BY_CITY, value);
   }
 
@@ -34,7 +34,7 @@ class Graphic extends Component {
     this.getChartData(REST_API_URL_GET_BY_CITY, this.state.location);
   }
 
-  getChartData(url,value) {
+  getChartData(url, value) {
     axios.get(url + value).then(res => {
       const statElement = res.data;
       let labels = [];

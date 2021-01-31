@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Locale;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class StatisticsService {
@@ -15,7 +16,18 @@ public class StatisticsService {
     @Autowired
     private StatisticsRepository repository;
 
-    public Statistics addStatistics(Statistics statistics) {
+    public Statistics addStatistics(Statistics statistics) throws ParseException {
+
+        Date statisticsDate = statistics.getDate();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(statisticsDate);
+        //added timezone for mongodb date consistency
+        String dateString = calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.DAY_OF_MONTH);
+        SimpleDateFormat isoFormat = new SimpleDateFormat("yyyy-MM-dd");
+        isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Date dateWithTimeZone = isoFormat.parse(dateString);
+        statistics.setDate(dateWithTimeZone);
+
         List<Statistics> currentSameDayAndCity = repository.findByCityAndDate(statistics.getCity(), statistics.getDate());
         if (currentSameDayAndCity.size() == 0) { //first posted news for day and city
             return repository.insert(statistics);
