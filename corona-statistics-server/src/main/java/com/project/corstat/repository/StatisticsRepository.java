@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface StatisticsRepository extends MongoRepository<Statistics, String> {
     List<Statistics> findByCityOrderByDateAsc(String city);
+
     List<Statistics> findByCityAndDate(String city, Date date);
 }
